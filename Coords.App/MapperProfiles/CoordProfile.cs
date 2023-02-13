@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Coord.Domain.Events;
 using Coords.App.Commands.CreateCoord;
 using Coords.Domain.ViewModels;
 
@@ -9,6 +10,8 @@ namespace Coords.App.MapperProfiles
         public CoordProfile()
         {
             CreateMap<CreateCoordResultViewModel, CreateCoordsCommandResult>()
+                .ReverseMap();
+            CreateMap<CreateCoordViewModel, CreatingCoordEvent>()
                 .ReverseMap();
         }
     }

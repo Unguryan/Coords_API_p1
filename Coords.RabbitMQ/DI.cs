@@ -17,7 +17,8 @@ namespace Coords.RabbitMQ
 
             services.AddMassTransit(x =>
             {
-                //x.AddConsumers(typeof(DI).Assembly);
+                x.AddConsumers(typeof(DI).Assembly);
+                
                 x.AddBus(prov => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
                     cfg.Host(new Uri(rabbitCfg.Uri), host =>
@@ -25,6 +26,9 @@ namespace Coords.RabbitMQ
                         host.Username(rabbitCfg.Username);
                         host.Password(rabbitCfg.Password);
                     });
+
+                    //x.UsingRabbitMq((context, configurator) =>
+                    //    cfg.ConfigureEndpoints(context));
 
                     cfg.AddReceiveEndpointCreatedCoord(prov, rabbitOptions);
                     cfg.AutoDelete = true;

@@ -1,4 +1,5 @@
 ﻿using Coords.App.Services;
+using Coords.Domain.Events;
 using Coords.Domain.Options;
 using MassTransit;
 using Microsoft.Extensions.Options;
@@ -16,9 +17,9 @@ namespace Coords.RabbitMQ.Services
             _options = options;
         }
 
-        public async Task<bool> SendToQueue<T>(string queueName, T request)
+        public async Task<bool> SendToQueue<T>(string queueName, T request) where T : class, IBaseEvent
         {
-            var endpoint = await _busControl.GetSendEndpoint(new Uri($"{_options.Value.Uri}/{queueName}?bind=true&queue={queueName}"));
+            var endpoint = await _busControl.GetSendEndpoint(new Uri($"{_options.Value.Uri}/{queueName}_Exchange?queue={queueName}"));
             await endpoint.Send(request);
 
             return true;

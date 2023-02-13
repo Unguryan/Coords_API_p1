@@ -1,5 +1,4 @@
-﻿using Coords.Domain.Events;
-using Coords.Domain.Options;
+﻿using Coords.Domain.Options;
 using Coords.RabbitMQ.Consumers;
 using MassTransit;
 
@@ -14,8 +13,9 @@ namespace Coords.RabbitMQ.Extensions
             cfg.ReceiveEndpoint(rabbitSection.CreatedCoordQueue, config =>
             {
                 config.ConfigureConsumeTopology = false;
-                config.Bind<CreatedCoordEvent>();
-                config.Consumer<CreatedCoordConsumer>();
+                config.Bind($"{rabbitSection.CreatedCoordQueue}_Exchange");
+                //config.Bind<CreatedCoordEvent>();
+                config.ConfigureConsumer<CreatedCoordConsumer>(context);
             });
         }
     }
