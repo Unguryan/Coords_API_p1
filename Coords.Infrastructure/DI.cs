@@ -13,6 +13,7 @@ namespace Coords.Infrastructure
             services.AddAssembly(configuration);
 
             services.AddScoped<ICoordService, CoordService>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

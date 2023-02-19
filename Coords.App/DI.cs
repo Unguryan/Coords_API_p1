@@ -18,6 +18,10 @@ namespace Coords.App
             var rabbitMQConfigurationSection = configuration.GetSection(RabbitMQConfiguration.SectionName);
             services.AddOptions<RabbitMQConfiguration>()
                    .Bind(rabbitMQConfigurationSection);
+            
+            var userServiceSection = configuration.GetSection(UserServiceOptions.SectionName);
+            services.AddOptions<UserServiceOptions>()
+                   .Bind(userServiceSection);
 
             var assebmly = Assembly.GetExecutingAssembly();
 

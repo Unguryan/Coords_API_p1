@@ -20,11 +20,15 @@ namespace Coords.App.Validators
                 .NotEmpty()
                 .NotNull().WithMessage(CreateCoordErrors.LongitudeRequired);
 
-            RuleFor(x => x.PhoneNumber)//123-456-78-90 - length - 13
+            RuleFor(x => x.UserToken)
                 .NotEmpty()
-                .NotNull().WithMessage(CreateCoordErrors.PhoneNumberRequired) 
-                .Length(13).WithMessage(CreateCoordErrors.PhoneNumberLength)
-                .Matches(new Regex(@"\d{3}-\d{3}-\d{2}-\d{2}$")).WithMessage(CreateCoordErrors.PhoneNumberInvalid);
+                .NotNull().WithMessage(CreateCoordErrors.TokenRequired);
+
+            //RuleFor(x => x.User.PhoneNumber)//123-456-78-90 - length - 13
+            //    .NotEmpty()
+            //    .NotNull().WithMessage(CreateCoordErrors.PhoneNumberRequired) 
+            //    .Length(13).WithMessage(CreateCoordErrors.PhoneNumberLength)
+            //    .Matches(new Regex(@"\d{3}-\d{3}-\d{2}-\d{2}$")).WithMessage(CreateCoordErrors.PhoneNumberInvalid);
         }
     }
 }

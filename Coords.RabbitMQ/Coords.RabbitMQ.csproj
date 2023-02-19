@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Consumers\" />
+    <Folder Include="Extensions\" />
     <Folder Include="Publishers\" />
   </ItemGroup>
 

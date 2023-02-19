@@ -1,6 +1,5 @@
 ﻿using Coords.App.Services;
 using Coords.Domain.Options;
-using Coords.RabbitMQ.Extensions;
 using Coords.RabbitMQ.Services;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -30,7 +29,6 @@ namespace Coords.RabbitMQ
                     //x.UsingRabbitMq((context, configurator) =>
                     //    cfg.ConfigureEndpoints(context));
 
-                    cfg.AddReceiveEndpointCreatedCoord(prov, rabbitOptions);
                     cfg.AutoDelete = true;
                 }));
             });

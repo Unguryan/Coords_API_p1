@@ -4,6 +4,19 @@ using Coords.RabbitMQ;
 var builder = WebApplication.CreateBuilder(args);
 
 
+var policyName = "defaultAngularCorsPolicy";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(policyName, builder =>
+    {
+        builder.WithOrigins("https://localhost:44439")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            //.AllowAnyOrigin()
+            .AllowCredentials();
+    });
+});
+
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddRabbit(builder.Configuration);
 
@@ -19,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(policyName);
 
 //app.UseHttpsRedirection();
 

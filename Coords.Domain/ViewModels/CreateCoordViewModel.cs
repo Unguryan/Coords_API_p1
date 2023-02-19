@@ -1,4 +1,6 @@
-﻿namespace Coords.Domain.ViewModels
+﻿using Coords.Domain.Models;
+
+namespace Coords.Domain.ViewModels
 {
-    public record CreateCoordViewModel(decimal Longitude, decimal Latitude, string Details, string PhoneNumber);
+    public record CreateCoordViewModel(decimal Longitude, decimal Latitude, string Details, string UserToken);
 }
