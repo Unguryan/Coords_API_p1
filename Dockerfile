@@ -11,6 +11,11 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Coords.API/Coords.API.csproj", "Coords.API/"]
+COPY ["Coords.Domain/Coords.Domain.csproj", "Coords.Domain/"]
+COPY ["Coords.App/Coords.App.csproj", "Coords.App/"]
+COPY ["Coords.Infrastructure/Coords.Infrastructure.csproj", "Coords.Infrastructure/"]
+COPY ["Coords.Notifications/Coords.Notifications.csproj", "Coords.Notifications/"]
+COPY ["Coords.RabbitMQ/Coords.RabbitMQ.csproj", "Coords.RabbitMQ/"]
 RUN dotnet restore "Coords.API/Coords.API.csproj"
 COPY . .
 WORKDIR "/src/Coords.API"

@@ -23,7 +23,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coords.Notifications", "Coo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coords.API", "Coords.API\Coords.API.csproj", "{EFBF873A-6B61-4FE4-910F-3644CC2C9AEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coords.RabbitMQ", "Coords.RabbitMQ\Coords.RabbitMQ.csproj", "{13B28744-0BCD-4DE3-B1F6-86E2A8D87EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coords.RabbitMQ", "Coords.RabbitMQ\Coords.RabbitMQ.csproj", "{13B28744-0BCD-4DE3-B1F6-86E2A8D87EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{F3BDDEC2-235B-42BE-BC2C-736EAFD0D337}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

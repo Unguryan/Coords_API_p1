@@ -16,7 +16,7 @@ namespace Coords.RabbitMQ
 
             services.AddMassTransit(x =>
             {
-                x.AddConsumers(typeof(DI).Assembly);
+                //x.AddConsumers(typeof(DI).Assembly);
                 
                 x.AddBus(prov => Bus.Factory.CreateUsingRabbitMq(cfg =>
                 {
@@ -29,7 +29,7 @@ namespace Coords.RabbitMQ
                     //x.UsingRabbitMq((context, configurator) =>
                     //    cfg.ConfigureEndpoints(context));
 
-                    cfg.AutoDelete = true;
+                    //cfg.AutoDelete = true;
                 }));
             });
 
